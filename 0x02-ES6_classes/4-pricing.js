@@ -7,8 +7,11 @@ export default class Pricing {
   }
 
   set amount(setAmount) {
-    if (typeof setAmount !== 'number') { throw new Error('Amount must be a number'); }
-    this._amount = setAmount;
+    if (typeof setAmount === 'number') {
+      this._amount = setAmount;
+    } else {
+      throw new Error('Amount must be a number');
+    }
   }
 
   get amount() {
@@ -16,8 +19,11 @@ export default class Pricing {
   }
 
   set currency(setCurrency) {
-    if (!(setCurrency instanceof Currency)) { throw new Error('Currency must be an instanceof Currency'); }
-    this._currency = setCurrency;
+    if (setCurrency instanceof Currency) {
+      this._currency = setCurrency;
+    } else {
+      throw new Error('Currency must be an instanceof Currency');
+    }
   }
 
   get currency() {
