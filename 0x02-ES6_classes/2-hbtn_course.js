@@ -6,8 +6,11 @@ export default class HolbertonCourse {
   }
 
   set name(setName) {
-    if (typeof setName !== 'string') { throw new Error('Name must be a string'); }
-    this._name = setName;
+    if (typeof setName !== 'string') {
+      this._name = setName;
+    } else {
+      throw new Error('Name must be a string');
+    }
   }
 
   get name() {
@@ -15,8 +18,11 @@ export default class HolbertonCourse {
   }
 
   set length(setLength) {
-    if (typeof setLength !== 'number') { throw new Error('Length must be a number'); }
-    this._length = setLength;
+    if (typeof setLength !== 'number') {
+      this._length = setLength;
+    } else {
+      throw new Error('Length must be a number');
+    }
   }
 
   get length() {
