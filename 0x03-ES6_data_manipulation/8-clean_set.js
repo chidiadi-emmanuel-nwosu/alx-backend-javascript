@@ -1,5 +1,5 @@
 export default function cleanSet(set, startString) {
-  if (!set || !startString || !startString.length) return '';
+  if (!startString || !startString.length) return '';
 
   const stringSet = [...set].filter((element) => typeof element === 'string');
 
