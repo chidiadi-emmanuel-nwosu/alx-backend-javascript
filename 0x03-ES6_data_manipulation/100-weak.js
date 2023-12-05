@@ -8,12 +8,8 @@ export function queryAPI(endpoint) {
     && 'name' in endpoint;
 
   if (isValidEndpoint) {
-    if (!weakMap.has(endpoint)) {
-      weakMap.set(endpoint, 1);
-    } else if (weakMap.get(endpoint) >= 5) {
-      throw new Error('Endpoint load is high');
-    } else {
-      weakMap.set(endpoint, weakMap.get(endpoint) + 1);
-    }
+    const queryCount = weakMap.get(endpoint) || 0;
+    if (queryCount >= 5) throw new Error('Endpoint load is high');
+    weakMap.set(endpoint, queryCount + 1);
   }
 }
