@@ -6,8 +6,8 @@ displayMessage('Welcome to Holberton School, what is your name?');
 
 process.stdin.on('data', (chunk) => {
   const name = chunk.trim();
-  displayMessage('Your name is: ' + name);
-  process.stdin.isTTY && process.exit();
+  displayMessage(`Your name is: ${name}`);
+  if (process.stdin.isTTY) process.exit();
 });
 
 process.stdin.on('end', () => {

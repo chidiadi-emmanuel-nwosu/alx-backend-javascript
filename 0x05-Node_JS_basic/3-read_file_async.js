@@ -1,7 +1,21 @@
 const fs = require('fs');
 const displayMessage = require('./0-console');
 
-function countStudents (path) {
+function filterStudentsByCourse(data, course) {
+  const students = [];
+  for (let i = 1; i < data.length; i += 1) {
+    const [firstname, lastname, age, field] = data[i].split(',');
+    if (lastname && age && field.trim() === course) {
+      students.push(firstname);
+    }
+  }
+  return {
+    count: students.length,
+    list: students.join(', '),
+  };
+}
+
+function countStudents(path) {
   return new Promise((resolve, reject) => {
     fs.readFile(path, 'utf8', (err, data) => {
       if (err) {
@@ -25,20 +39,6 @@ function countStudents (path) {
       resolve([msg1, msg2, msg3]);
     });
   });
-}
-
-function filterStudentsByCourse (data, course) {
-  const students = [];
-  for (let i = 1; i < data.length; i++) {
-    const [firstname, lastname, age, field] = data[i].split(',');
-    if (field.trim() === course) {
-      students.push(firstname);
-    }
-  }
-  return {
-    count: students.length,
-    list: students.join(', ')
-  };
 }
 
 module.exports = countStudents;

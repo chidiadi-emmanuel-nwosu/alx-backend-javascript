@@ -10,9 +10,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/students', (req, res) => {
+  const msg = 'This is the list of our students\n';
   countStudents(process.argv[2])
     .then((output) => {
-      const msg = 'This is the list of our students\n';
       res.send(`${msg}${output.join('\n')}`);
     })
     .catch((err) => {
