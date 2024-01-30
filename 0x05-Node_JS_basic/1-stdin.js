@@ -4,11 +4,11 @@ process.stdin.setEncoding('utf8');
 
 displayMessage('Welcome to Holberton School, what is your name?');
 
-process.stdin.on('data', (chunk) => {
-  displayMessage(`Your name is: ${chunk}`);
+process.stdin.on('data', (name) => {
+  process.stdout.write(`Your name is: ${name}`);
   if (process.stdin.isTTY) process.exit();
 });
 
-process.on('exit', () => {
+process.stdin.on('end', () => {
   displayMessage('This important software is now closing');
 });
