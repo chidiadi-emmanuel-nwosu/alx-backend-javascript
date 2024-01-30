@@ -1,8 +1,8 @@
-const router = require('express').Router();
+import express from 'express';
+import AppController from '../controllers/AppController';
+import StudentsController from '../controllers/StudentsController';
 
-const AppController = require('../controllers/AppController');
-
-const StudentsController = require('../controllers/StudentsController');
+const router = express.Router();
 
 const path = process.argv[2];
 
@@ -18,4 +18,4 @@ router.get('/students/:major', (req, res) => {
   StudentsController.getAllStudentsByMajor(req, res, path);
 });
 
-module.exports = router;
+export default router;
