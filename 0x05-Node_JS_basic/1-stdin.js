@@ -5,8 +5,7 @@ process.stdin.setEncoding('utf8');
 displayMessage('Welcome to Holberton School, what is your name?');
 
 process.stdin.on('data', (chunk) => {
-  const name = chunk.trim();
-  displayMessage(`Your name is: ${name}`);
+  displayMessage(`Your name is: ${chunk}`);
   if (process.stdin.isTTY) process.exit();
 });
 
