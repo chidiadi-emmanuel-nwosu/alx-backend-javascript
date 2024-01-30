@@ -39,6 +39,7 @@ class StudentsController {
 
         if (major !== 'CS' && major !== 'SWE') {
           response.status(500).send('Major parameter must be CS or SWE');
+          return;
         }
 
         const msg = `List: ${output[major].join(', ')}`;
