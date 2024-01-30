@@ -10,6 +10,6 @@ process.stdin.on('data', (chunk) => {
   if (process.stdin.isTTY) process.exit();
 });
 
-process.stdin.on('end', () => {
+process.stdin.on('exit', () => {
   displayMessage('This important software is now closing');
 });
