@@ -1,4 +1,4 @@
-const { readFile } = require('fs');
+import { readFile } from 'fs';
 
 function readDatabase(path) {
   return new Promise((resolve, reject) => {
@@ -24,4 +24,4 @@ function readDatabase(path) {
   });
 }
 
-module.exports = readDatabase;
+export default readDatabase;

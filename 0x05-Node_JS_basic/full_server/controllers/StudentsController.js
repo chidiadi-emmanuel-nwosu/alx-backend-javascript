@@ -1,4 +1,4 @@
-const readDatabase = require('../utils');
+import readDatabase from '../utils';
 
 function sortObject(obj) {
   const keys = Object.keys(obj);
