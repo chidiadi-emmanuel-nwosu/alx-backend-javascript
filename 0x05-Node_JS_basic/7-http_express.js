@@ -21,3 +21,5 @@ app.get('/students', (req, res) => {
 });
 
 app.listen(port);
+
+module.exports = app;
