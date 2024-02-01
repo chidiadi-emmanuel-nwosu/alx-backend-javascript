@@ -22,4 +22,25 @@ describe('index page', () => {
       done();
     });
   });
+
+  it('should return the correct status code for cart route with valid id', (done) => {
+    request.get('http://localhost:7865/cart/2', (err, res, body) => {
+      expect(res.statusCode).to.equal(200);
+      done();
+    });
+  });
+
+  it('should return the correct message for cart route with valid id', (done) => {
+    request.get('http://localhost:7865/cart/12', (err, res, body) => {
+      expect(body).to.equal('Payment methods for cart 12');
+      done();
+    });
+  });
+
+  it('should return the correct status code for cart route with invalid id', (done) => {
+    request.get('http://localhost:7865/cart/hello', (err, res, body) => {
+      expect(res.statusCode).to.equal(404);
+      done();
+    });
+  });
 });
