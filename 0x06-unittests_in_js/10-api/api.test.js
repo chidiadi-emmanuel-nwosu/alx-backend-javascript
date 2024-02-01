@@ -55,4 +55,14 @@ describe('routes', () => {
       });
     });
   });
+
+  describe('GET /available_payments', () => {
+    it('should respond with the correct status code and correct message', (done) => {
+      request.get('http://localhost:7865/available_payments', (error, response, body) => {
+        expect(response.statusCode).to.equal(200);
+        expect(JSON.parse(body)).to.deep.equal({ payment_methods: { credit_cards: true, paypal: false } });
+        done();
+      });
+    });
+  });
 });
